@@ -56,11 +56,11 @@ release:
     - glob: 'terraform-registry-manifest.json'
       name_template: '{{ .ProjectName }}_{{ .Version }}_manifest.json'
     - glob: './docs/index.md'
-      name_template: './docs/{{ .FilePath }}'
-    - glob: './docs/data-sources/*'
-      name_template: './docs/data-sources/{{ .FilePath }}'
-    - glob: './docs/resources/*'
-      name_template: './docs/resources/{{ .FilePath }}'
+      name_template: '{{ dir .Filename }}/{{ base .Filename }}'
+    - glob: 'docs/data-sources/*.md'
+      name_template: '{{ dir .Filename }}/{{ base .Filename }}'
+    - glob: 'docs/resources/*.md'
+      name_template: '{{ dir .Filename }}/{{ base .Filename }}'
   # If you want to manually examine the release before its live, uncomment this line:
   # draft: true
 changelog:
