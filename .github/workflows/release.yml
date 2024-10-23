@@ -31,7 +31,7 @@ jobs:
         with:
           gpg_private_key: ${{ secrets.PRIMUS_GPG_PRIVATE_KEY }}
       - name: Generate docs
-        run:
+        run: |
           make generate
           ls -al
       - name: Run GoReleaser
